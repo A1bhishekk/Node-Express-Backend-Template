@@ -1,5 +1,0 @@
-PORT=6500
-MONGO_URI=mongodb+srv://<username>:<password>@job-portal.v503unf.mongodb.net/crud-app
-DEV_MODE=development
-PROD_MODE=production
-JWT_SECRET=khkgbkgbkgbjgkjfulydtykdtjshfjhfrjt

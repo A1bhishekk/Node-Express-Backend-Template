@@ -3,6 +3,8 @@ import dotenv from 'dotenv';
 import colors from 'colors';
 import morgan from 'morgan';
 import cors from 'cors';
+import path from 'path';
+import ejs from 'ejs';
 
 // import modules 
 import connectDB from './config/db.js';
@@ -17,6 +19,12 @@ const port = process.env.PORT || 5000 ;
 
 // connect to database
 connectDB();
+
+// configure view engine
+app.set('view engine', 'ejs');
+
+// configure static folder
+app.use(express.static(path.join(path.resolve(), 'public')));
 
 
 // configure middlewares
@@ -36,7 +44,9 @@ app.use('/api/v1/user', userRoutes);
 app.use(errorMiddleware);
 
 app.get('/', (req, res) => {
-    res.send(`<h1> 🐰 Welcome to Tech Abhi Job Portal 💓</h1>`);
+    // res.sendFile(path.join(path.resolve(), './index.html'));
+    res.render('index',{title: 'Home Page'});
+
 });
 
 app.listen(port, () => {
