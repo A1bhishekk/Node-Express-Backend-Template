@@ -44,8 +44,8 @@ app.use('/api/v1/user', userRoutes);
 app.use(errorMiddleware);
 
 app.get('/', (req, res) => {
-    // res.sendFile(path.join(path.resolve(), './index.html'));
-    res.render('index',{title: 'Home Page'});
+    res.sendFile(path.join(path.resolve(), './index.html'));
+    // res.render('index',{title: 'Home Page'});
 
 });
 
